@@ -14,4 +14,8 @@ class Board:
                 self.squares[row][col] = Square(row, col)
 
     def _add_pieces(self, color):
-        pass
+
+        row_pawn, row_other = (6, 7) if color == "white" else (1, 0)
+        print(row_pawn, row_other)
+
+ 
