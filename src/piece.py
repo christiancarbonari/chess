@@ -2,7 +2,7 @@ import os
 
 class Piece:
 
-    def __init__(self, name, color, value, texture, texture_rect = None):
+    def __init__(self, name, color, value, texture=None, texture_rect = None):
         self.name = name
         self.color = color
         value_sign = 1 if color == 'white' else -1
@@ -14,7 +14,7 @@ class Piece:
 
     def set_texture(self, size = 80):
         self.texture = os.path.join(
-            f'assets/images/imgs={size}px/{self.color}_{self.name}.png'
+            f'assets/images/imgs-{size}px/{self.color}_{self.name}.png'
         )
 
     def add_moves(self, move):
@@ -22,9 +22,8 @@ class Piece:
 
         
 
-class Pawn:
-
-    def __init__(self, color) -> None: # if we know the color we know the direction
+class Pawn(Piece):
+    def __init__(self, color): # if we know the color we know the direction
         if color == 'white':
             self.dir = -1
         else:
@@ -37,7 +36,7 @@ class Knight(Piece):
 
 class Bishop(Piece):
     def __init__(self, color):
-        super().__init__('knight', color, 3.001)
+        super().__init__('bishop', color, 3.001)
 
 class Rook(Piece):
     def __init__(self, color):

@@ -25,4 +25,13 @@ class Game():
         for row in range(ROWS):
             for col in range(COLS):
                 if self.board.squares[row][col].has_piece():
-                    pass
+                    # Check if there's a piece in a square
+                    piece = self.board.squares[row][col].piece
+
+                    # If yes, load the img from the assets/images folder, set dimension and 
+                    img = pygame.image.load(piece.texture)
+                    img_center = col * SQSIZE + SQSIZE // 2, row * SQSIZE + SQSIZE // 2
+                    piece.texture_rect = img.get_rect(center = img_center)
+                    surface.blit(img, piece.texture_rect)
+
+            
