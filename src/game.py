@@ -2,11 +2,13 @@ import pygame
 
 from const import *
 from board import *
+from dragger import Dragger 
 
 class Game():
 
     def __init__(self) -> None:
         self.board = Board()
+        self.dragger = Dragger()
     
     # Show methods
     def show_bg(self, surface):
