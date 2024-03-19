@@ -19,6 +19,9 @@ class Main:
             self.game.show_pieces(self.screen)
             dragger = self.game.dragger
 
+            if dragger.dragging:
+                dragger.update_blit(self.screen)
+
             for event in pygame.event.get():
 
                 if event.type == pygame.MOUSEBUTTONDOWN: # click
@@ -28,14 +31,17 @@ class Main:
 
                     if self.game.board.squares[clicked_row][clicked_col].has_piece():
                         piece = self.game.board.squares[clicked_row][clicked_col].piece
-                        
+                        dragger.drag_piece(piece)
 
 
                 elif event.type == pygame.MOUSEMOTION: # mouse motion
-                    pass
+                    if dragger.dragging:
+                        dragger.update_mouse(event.pos)
+                        dragger.update_blit(self.screen)
 
                 elif event.type == pygame.MOUSEBUTTONUP: # Mouse releas
-                    pass
+                    dragger.update_blit(self.screen,80)
+                    dragger.undrag_piece()
 
                 elif event.type == pygame.QUIT:
                     pygame.quit()
