@@ -49,6 +49,10 @@ class Main:
 
             pygame.display.update()
 
+            # Added a comment here
+
+            # Here I would like to add a lot of things!!!
+
             # I added a comment here
 
 
