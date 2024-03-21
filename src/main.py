@@ -49,6 +49,8 @@ class Main:
 
             pygame.display.update()
 
+            # I added a comment here
+
 
 main = Main()
 main.mainloop()
