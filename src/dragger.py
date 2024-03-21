@@ -39,6 +39,5 @@ class Dragger:
     
     def save_final(self):
         pass
-        # Add a comments here
 
 
